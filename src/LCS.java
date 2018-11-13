@@ -13,6 +13,8 @@ public class LCS {
 			"%", "%=", "/", "/=", "*", "*=", "^", "^=", "==", "&&", "&", "||", "!", " "};
 	
 	public static ArrayList<String> present_delimiter = new ArrayList<>();
+
+	public static PrintWriter pw;
 	
 	public static void isTokenPresent(String str, String del) {
 		if (token_list.isEmpty())
@@ -75,8 +77,35 @@ public class LCS {
 		return lt;
 	}
 	
+	public static ArrayList<String> checkLCS(String text, ArrayList<String> token, ArrayList<String> delim) {
+		ArrayList<String> table = new ArrayList<>();
+		int count = 2;
+		int i,j;
+		
+		for (i = 0; i < token.size(); i++) {
+			for (j = 0; j < delim.size(); j++) {
+				String tmp = token.get(i) + delim.get(j);
+				//System.out.println(tmp);
+				if (text.contains(tmp))
+					//count = text.split(tmp, -1).length-1;
+				
+				if (count > 1) {
+					table.add(tmp);
+					double score = Math.log10(count)/Math.log10(2);
+
+					String sb = score + "," + count + "," + tmp;
+					pw.write(sb);
+				}
+			}
+		}
+		
+		//pw.write(sb.toString());
+		return table;
+	}
+	
 	public static void main(String[] args) throws IOException {
 		BufferedReader folder = new BufferedReader(new FileReader("list-2.txt"));
+		pw = new PrintWriter(new File("LCS_Report.csv"));
 		
 		String text = new String();
 		String filename = folder.readLine();
@@ -103,7 +132,7 @@ public class LCS {
 				present_delimiter.add(all_valid_delimiter[i]);
 		}
 		
-		//System.out.println(present_delimiter);
+		System.out.println(present_delimiter);
 		
 		/*String text = "System.out.println(\"Enter First Number: \");\r\n if (a==b) { System.out.println(\"Hi\"); }" + 
 				"num1 = sc.nextInt();\r\n";
@@ -130,6 +159,10 @@ public class LCS {
 		}
 		
 		token_list = refineString(token_list);
-		System.out.println(token_list);
+		//System.out.println(token_list);
+		
+		System.out.println(checkLCS(text, token_list, present_delimiter));
+		
+		pw.close();
 	}
 }
