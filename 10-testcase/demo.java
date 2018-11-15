@@ -1,16 +1,18 @@
 class Main {
 
-   public static void main(String[] args) {
-       System.out.println("About to encounter a method.");
+    public static void main(String[] args)
+    {
+        System.out.println("About to encounter a method.");
 
-       // method call
-       myMethod();
+        // method call
+        myMethod();
 
-       System.out.println("Method was executed successfully!");
-   }
+        System.out.println("Method was executed successfully!");
+    }
 
-   // method definition
-   private static void myMethod(){
-       System.out.println("Printing from inside myMethod()!");
-   }
+    // method definition
+    private static void myMethod()
+    {
+        System.out.println("Printing from inside myMethod()!");
+    }
 }
