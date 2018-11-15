@@ -154,8 +154,9 @@ public class LCS {
 	}
 	
 	public static void main(String[] args) throws IOException {
-		BufferedReader folder = new BufferedReader(new FileReader("list-100.txt"));
-		pw = new PrintWriter(new File("LCS_Report100.csv"));
+		//System.out.println(args[0]);
+		BufferedReader folder = new BufferedReader(new FileReader(args[0]));
+		pw = new PrintWriter(new File("LCS_Report.csv"));
 		
 		String text = new String();
 		String filename = folder.readLine();
