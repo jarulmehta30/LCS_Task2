@@ -20,6 +20,13 @@ public class LCS {
 
     public static PrintWriter pw;
 
+    /*
+     * This function is used to if the given delimiter is present in
+     * the given string or not and form a list of all tokens
+     *
+     * String str [IN] string in which the delimiter is to be searched
+     * String del [IN] delimiter to be checked for in the sring
+     */
     public static void isTokenPresent(String str, String del)
     {
         if (token_list.isEmpty()) {
@@ -37,6 +44,13 @@ public class LCS {
         }
     }
 
+    /*
+     * This function removes spaces and empty lines from the tokens generated.
+     *
+     * ArrayList<String> lt [IN] arraylist of all the tokens
+     *
+     * ArrayList<String> [OUT] clean and refined arraylist
+     */
     public static ArrayList<String> refineString(ArrayList<String> lt)
     {
         int i, j;
@@ -87,6 +101,14 @@ public class LCS {
         return lt;
     }
 
+    /*
+     * This function returns the count of how many times a particular substring is repeated in the string
+     *
+     *  String string [IN] string in which the substring's total occurences are to be calculated
+     *  String substring [IN] substring to be counted
+     *
+     *  int [OUT] count of total number of occurences of substring in string
+     */
     public static int count(String string, String substring)
     {
         int count = 0;
@@ -100,19 +122,23 @@ public class LCS {
         return count;
     }
 
-    public static HashMap<String, Integer> checkLCS(String text,
-            ArrayList<String> token, ArrayList<String> delim)
+    /*
+     * This function checks for all valid common substrings and generates the output file.
+     *
+     * ArrayList<String> token [IN]
+     */
+    public static HashMap<String, Integer> checkLCS(String text)
     {
         HashMap<String, Integer> table = new HashMap<String, Integer>();
 
         int i;
         int numToken = 0;
 
-        for (i = 0; i < token.size(); i++) {
+        for (i = 0; i < token_list.size(); i++) {
             Iterator it = LCStable.entrySet().iterator();
             while (it.hasNext()) {
                 HashMap.Entry pair = (HashMap.Entry) it.next();
-                String tmp = pair.getKey().toString() + token.get(i);
+                String tmp = pair.getKey().toString() + token_list.get(i);
                 int cnt = 0;
                 if (text.contains(tmp)) {
                     if ((int) pair.getValue() > 1) {
@@ -134,11 +160,11 @@ public class LCS {
             }
         }
 
-        for (i = 0; i < delim.size(); i++) {
+        for (i = 0; i < present_delimiter.size(); i++) {
             Iterator it = LCStable.entrySet().iterator();
             while (it.hasNext()) {
                 HashMap.Entry pair = (HashMap.Entry) it.next();
-                String tmp = pair.getKey().toString() + delim.get(i);
+                String tmp = pair.getKey().toString() + present_delimiter.get(i);
                 int cnt = 0;
                 if (text.contains(tmp)) {
                     cnt = count(text, tmp);
@@ -164,6 +190,8 @@ public class LCS {
     public static void main(String[] args) throws IOException
     {
         BufferedReader folder = new BufferedReader(new FileReader(args[0]));
+
+        /* Output file */
         pw = new PrintWriter(new File("LCS_Report.csv"));
 
         String text = new String();
@@ -171,6 +199,7 @@ public class LCS {
         String tmp[];
         int i, j;
 
+        /* reead the contents of all the files in a string */
         while (filename != null) {
             BufferedReader fd = new BufferedReader(new FileReader(filename));
 
@@ -185,13 +214,12 @@ public class LCS {
         }
         folder.close();
 
+        /* determine which delimiters are present throughout all files */
         for (i = 0; i < all_valid_delimiter.length; i++) {
             if (text.contains(all_valid_delimiter[i])) {
                 present_delimiter.add(all_valid_delimiter[i]);
             }
         }
-
-        // System.out.println(present_delimiter);
 
         tmp = text.split(delimiter);
 
@@ -204,8 +232,9 @@ public class LCS {
         token_list = refineString(token_list);
         // System.out.println(LCStable);
 
+        /* Check all common substrings in the text */
         while (!LCStable.isEmpty()) {
-            LCStable = checkLCS(text, token_list, present_delimiter);
+            LCStable = checkLCS(text);
         }
 
         pw.close();
