@@ -1,0 +1,79 @@
+2.3219280948873626,5,System.
+2.0,4,out.
+1.584962500721156,3,sc.
+1.0,2,java.
+1.0,2,util.
+1.0,2,0;
+1.0,2,main(
+2.0,4,println(
+1.0,2,in(
+1.0,2,nextInt(
+1.0,2,args)
+1.0,2,import 
+1.0,2,sum 
+1.0,2,String[] 
+2.0,4,public 
+1.0,2,of 
+1.0,2,num1 
+1.0,2,class 
+1.0,2,static 
+1.0,2,void 
+1.0,2,i 
+1.0,2,int 
+1.0,2,2 
+1.584962500721156,2,java.util
+3.169925001442312,4,System.out
+3.169925001442312,4,out.println
+1.584962500721156,2,sc.nextInt
+1.584962500721156,2,import java
+1.584962500721156,2,public class
+1.584962500721156,2,public static
+1.584962500721156,2,static void
+1.584962500721156,2,void main
+1.584962500721156,2,main(String[]
+1.584962500721156,2,in(String[]
+1.584962500721156,2,String[] args
+1.584962500721156,2,nextInt()
+1.584962500721156,2,0; 
+2.0,2,0; i
+2.0,2,java.util.
+2.0,2,import java.
+4.0,4,System.out.
+2.0,2,nextInt();
+2.0,2,void main(
+2.0,2,sc.nextInt(
+4.0,4,out.println(
+2.0,2,String[] args)
+2.0,2,public static 
+2.0,2,in(String[] 
+2.0,2,static void 
+2.0,2,main(String[] 
+2.0,2,public class 
+2.3219280948873626,2,import java.util
+4.643856189774725,4,System.out.println
+2.3219280948873626,2,public static void
+2.3219280948873626,2,static void main
+2.3219280948873626,2,void main(String[]
+2.3219280948873626,2,main(String[] args
+2.3219280948873626,2,in(String[] args
+2.3219280948873626,2,sc.nextInt()
+2.584962500721156,2,import java.util.
+2.584962500721156,2,sc.nextInt();
+2.584962500721156,2,static void main(
+5.169925001442312,4,System.out.println(
+2.584962500721156,2,main(String[] args)
+2.584962500721156,2,in(String[] args)
+2.584962500721156,2,void main(String[] 
+2.584962500721156,2,public static void 
+2.807354922057604,2,public static void main
+2.807354922057604,2,static void main(String[]
+2.807354922057604,2,void main(String[] args
+3.0,2,public static void main(
+3.0,2,void main(String[] args)
+3.0,2,static void main(String[] 
+3.169925001442312,2,public static void main(String[]
+3.169925001442312,2,static void main(String[] args
+3.321928094887362,2,static void main(String[] args)
+3.321928094887362,2,public static void main(String[] 
+3.4594316186372978,2,public static void main(String[] args
+3.5849625007211565,2,public static void main(String[] args)
